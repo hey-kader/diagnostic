@@ -1,6 +1,7 @@
 import React, { Component, useRef, useEffect, useState } from "react"
 import Chessboard from "chessboardjsx"
 import Chess from "chess.js"
+import axios from "axios"
 
 function Board (props) {
     
@@ -23,10 +24,13 @@ function Board (props) {
 
         if (move === null) return;
         setFen(game.current.fen())
+
+        console.log(targetSquare)
+        document.getElementById("playerMove").innerHTML = targetSquare
     }
     
     return (
-        <div id="board">
+        <div id="board" style={{margin: 'auto', display: 'inline'}}>
             <Chessboard
                 position={fen}
                 onDrop={onDrop}

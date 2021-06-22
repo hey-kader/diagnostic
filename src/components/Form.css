@@ -1,6 +1,7 @@
 form {
-    display: flex;
     margin: auto;
+    background: white;
+    color: black;
 }
 
 input{

@@ -5,9 +5,18 @@ import ReactDOM from 'react-dom'
 
 function Form () {
     function handle_submit () {
-        document.getElementById("form").innerHTML = "";
-        ReactDOM.render(<Test />, document.getElementById('root'))
+
+
+        var name = document.getElementById("name").value
+        var email = document.getElementById("email").value
+        var student = document.getElementById("student").value
+        var age = document.getElementById("age").value
+
+
+        ReactDOM.unmountComponentAtNode(document.getElementById("form"))
+        ReactDOM.render(<Test name={name} email={email} student={student} age={age} />, document.getElementById('root'))
     }
+
     return (
         <form action="" onSubmit={(e) => {e.preventDefault(); handle_submit()}} id="form">
             <fieldset>
