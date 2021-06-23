@@ -2,8 +2,10 @@ import React, { Component } from "react"
 import "./Form.css"
 import Test from './Test'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
 
 function Form () {
+
     function handle_submit () {
 
 
@@ -12,13 +14,28 @@ function Form () {
         var student = document.getElementById("student").value
         var age = document.getElementById("age").value
 
+        const data = {
+            'name': name,
+            'email': email,
+            'student': student,
+            'age': age
+        }
+
+        console.log(data)
+        axios.post('http://localhost:3000/', JSON.stringify(data))
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
         ReactDOM.unmountComponentAtNode(document.getElementById("form"))
         ReactDOM.render(<Test name={name} email={email} student={student} age={age} />, document.getElementById('root'))
     }
 
     return (
-        <form action="" onSubmit={(e) => {e.preventDefault(); handle_submit()}} id="form">
+        <form action="" method="post" onSubmit={(e) => {e.preventDefault(); handle_submit()}} id="form">
             <fieldset>
                 <legend>Chess Assessment</legend>
                 <table>
