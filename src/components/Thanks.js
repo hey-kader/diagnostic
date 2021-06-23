@@ -4,6 +4,7 @@ function Thanks (props) {
     const [submit, setSubmit] = useState(props.submit)
     const answers = props.answers
     const user = props.user
+    const titles = props.titles
     
     function score () {
         var count = 0
@@ -14,6 +15,27 @@ function Thanks (props) {
         }
 
         return parseFloat(count/40.0 * 100)
+    }
+
+    async function titles_show () {
+        await document.getElementById("ul")
+        let ul = document.getElementById("ul")
+        for (var i = 0; i < titles.length; i++) {
+            var title = (i+1) + '.' + titles[i]
+            const h = document.createElement("h5")
+            h.appendChild(document.createTextNode(title))
+            if (submit[i] === answers[i]) {
+                h.style.color = "green"
+            }
+            else {
+                h.style.color = "red"
+            }
+            console.log(submit[i])
+            console.log(answers[i])
+            ul.appendChild(h)
+            
+        }
+
     }
     function make_obj () {
 
@@ -28,12 +50,15 @@ function Thanks (props) {
         console.log(obj)
 
     }
-
+    titles_show()
     return (
         <div>
             <h1>Thanks {user['student']}!</h1>
-            <h2>Score: {score()}%</h2>
             {make_obj()}
+            <div id="ul" style={{borderStyle: 'groove', borderRadius: '5px', padding: '1rem'}}>
+                <h2>Score Report: </h2>
+            </div>
+            <h2>Score: {score()}%</h2>
         </div>
     )
 }

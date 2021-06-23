@@ -6,6 +6,7 @@ import Thanks from "./Thanks"
 import "./Test.css"
 
 let a = []
+let titles = []
 
 function* iter (fenlist) {
     for (var i = 0; i < fenlist.length ; i++) {
@@ -13,6 +14,7 @@ function* iter (fenlist) {
             document.getElementById("title").innerHTML = fenlist[i].id + '. '+ fenlist[i].color + ' To Move'
             document.getElementById("fen").innerHTML = fenlist[i].fen
             a.push(fenlist[i].answer)
+            titles.push(fenlist[i].title)
             console.log(a)
            yield fenlist[i].fen
         }
@@ -37,7 +39,7 @@ function handle_click (f, pr) {
 
         ar.push(document.getElementById("playerMove").innerHTML)
         console.log(f)
-        const thanks = <Thanks answers={a} user={pr} submit={ar} />
+        const thanks = <Thanks titles={titles} answers={a} user={pr} submit={ar} />
         ReactDOM.render(thanks, document.getElementById("root"))
     }
 }
@@ -80,7 +82,7 @@ class Test extends Component {
         return (
             <div style={{marginTop: '2rem'}}>
                 <h2 id="title"></h2>
-                <h3 id="fen"></h3>
+                <h3 id="fen" hidden></h3>
                 <h2 id="playerMove" hidden></h2>
 
                 <div id="board">
