@@ -10,8 +10,8 @@ let a = []
 function* iter (fenlist) {
     for (var i = 0; i < fenlist.length ; i++) {
         if (typeof(fenlist[i].fen) !== "undefined") {
-            document.getElementById("title").innerHTML = fenlist[i].id + '. '+ fenlist[i].title
-            document.getElementById("color").innerHTML = "Color: "+fenlist[i].color
+            document.getElementById("title").innerHTML = fenlist[i].id + '. '+ fenlist[i].color + ' To Move'
+            document.getElementById("fen").innerHTML = fenlist[i].fen
             a.push(fenlist[i].answer)
             console.log(a)
            yield fenlist[i].fen
@@ -40,6 +40,13 @@ function handle_click (f, pr) {
         const thanks = <Thanks answers={a} user={pr} submit={ar} />
         ReactDOM.render(thanks, document.getElementById("root"))
     }
+}
+
+function reset_click () {
+    const fen = document.getElementById("fen").innerHTML
+    ReactDOM.unmountComponentAtNode(document.getElementById("board"))
+    const board = <Board fen={fen} />
+        ReactDOM.render(board, document.getElementById("board"))
 }
 
 const api = axios.create ({
@@ -73,13 +80,14 @@ class Test extends Component {
         return (
             <div style={{marginTop: '2rem'}}>
                 <h2 id="title"></h2>
-                <h3 id="color"></h3>
+                <h3 id="fen"></h3>
                 <h2 id="playerMove" hidden></h2>
 
                 <div id="board">
                     {typeof(t) !== "undefined" ? <Board fen={t} /> : ""}
                 </div>
                 <br />
+                <button id="reset" onClick={() => reset_click()} style={{borderStyle: 'inset'}}>reset</button>
                 <button style={{borderStyle: 'inset'}} onClick={() => handle_click(it.next().value, this.props)} id="next">next</button>
             </div>
         )
