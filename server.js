@@ -106,7 +106,7 @@ app.post('/', encodedParser, function (req, res) {
         var li = c.split("\"")
         var t = []
         for (var u of li ) {
-            if (u.length > 0 && u != 'data'  && u.includes("data") == false &&  u != ",\\" && u!= "\\" && u!= ":\\" && u != 'name' && u != 'email' && u != 'age' && u != 'student') {
+            if (u.length > 0 && u != ':' && u != 'data'  && u.includes("data") == false &&  u != ",\\" && u!= "\\" && u!= ":\\" && u != 'name' && u != 'email' && u != 'age' && u != 'student') {
                 t.push(u)
             }
         }

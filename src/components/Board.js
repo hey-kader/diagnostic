@@ -9,7 +9,13 @@ function Board (props) {
 
     let game = useRef(null)
     useEffect (() => {
-        game.current = new Chess (fen)
+	if (game === null) {
+	    document.getElementById("next").style.visibility = "hidden"
+	    document.getElementById("reset").style.visibility = "hidden"
+	}
+	else {
+	    game.current = new Chess (fen)
+	}
     }, [])
 
 
@@ -24,6 +30,9 @@ function Board (props) {
 
         console.log(targetSquare)
         document.getElementById("playerMove").innerHTML = targetSquare
+
+        document.getElementById("next").style.display = "block"
+        document.getElementById("reset").style.display = "block"
     }
     
     return (

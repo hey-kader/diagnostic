@@ -33,6 +33,8 @@ function handle_click (f, pr) {
         ReactDOM.unmountComponentAtNode(document.getElementById("board"))
         const board = <Board fen={f} />
             ReactDOM.render(board, document.getElementById("board"))
+	document.getElementById('next').style.display = 'none'
+	document.getElementById('reset').style.display = 'none'
     }
 
     else {
@@ -49,6 +51,8 @@ function reset_click () {
     ReactDOM.unmountComponentAtNode(document.getElementById("board"))
     const board = <Board fen={fen} />
         ReactDOM.render(board, document.getElementById("board"))
+    document.getElementById('next').style.display = 'none'
+    document.getElementById('reset').style.display = 'none'
 }
 
 const api = axios.create ({
@@ -91,8 +95,8 @@ class Test extends Component {
                     {typeof(t) !== "undefined" ? <Board fen={t} /> : ""}
                 </div>
                 <br />
-                <button id="reset" onClick={() => reset_click()} style={{borderStyle: 'inset'}}>reset</button>
-                <button style={{borderStyle: 'inset'}} onClick={() => handle_click(it.next().value, this.props)} id="next">next</button>
+                <button id="reset" onClick={() => reset_click()} style={{borderStyle: 'inset'}} >reset</button>
+                <button style={{borderStyle: 'inset'}} onClick={() => handle_click(it.next().value, this.props)} id="next" >next</button>
             </div>
         )
     }
