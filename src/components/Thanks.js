@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react"
+import axios from 'axios'
 
 function Thanks (props) {
     const [submit, setSubmit] = useState(props.submit)
@@ -48,8 +49,18 @@ function Thanks (props) {
         }
 
         console.log(obj)
+        // axios post request
+        axios.post('http://localhost:3000/', JSON.stringify(obj))
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
+    
+
     titles_show()
     return (
         <div>
