@@ -13,7 +13,7 @@ function Board (props) {
     }, [])
 
     const style = {
-        display: 'flex'
+        display: 'inline'
     }
 
     const onDrop = ({sourceSquare, targetSquare}) => {
@@ -30,10 +30,11 @@ function Board (props) {
     }
     
     return (
-        <div id="board" style={{margin: 'auto', display: 'inline'}}>
+        <div id="board" className="wrapper" >
             <Chessboard
                 position={fen}
                 onDrop={onDrop}
+		width={340}
             />
         </div>
     )

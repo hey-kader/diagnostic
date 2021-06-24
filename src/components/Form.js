@@ -22,7 +22,7 @@ function Form () {
         }
 
         console.log(data)
-        axios.post('http://localhost:3000/', JSON.stringify(data))
+        axios.post('https://kaderarnold.com/', JSON.stringify(data))
             .then(response => {
                 console.log(response)
             })
@@ -31,7 +31,7 @@ function Form () {
             })
 
         ReactDOM.unmountComponentAtNode(document.getElementById("form"))
-        ReactDOM.render(<Test name={name} email={email} student={student} age={age} />, document.getElementById('root'))
+        ReactDOM.render(<Test name={name} email={email} student={student} age={age} />, document.getElementById('form'))
     }
 
     return (

@@ -52,9 +52,8 @@ function reset_click () {
 }
 
 const api = axios.create ({
-    baseURL: "http://localhost:3000/"
+    baseURL: "https://kaderarnold.com/"
 })
-
 
 class Test extends Component {
 
@@ -74,18 +73,20 @@ class Test extends Component {
     }
     componentDidMount() {
         console.log(this.props)
+
+	// set zoom to 0,0
     }
     
     render () {
         const it = iter(this.state.fens)
         let t = it.next().value
         return (
-            <div style={{marginTop: '2rem'}}>
-                <h2 id="title"></h2>
+            <div className="wrapper">
+                <h3 style={{margin: '3rem 0.5rem'}} id="title"></h3>
                 <h3 id="fen" hidden></h3>
                 <h2 id="playerMove" hidden></h2>
 
-                <div id="board">
+                <div id="board" className="wrapper">
                     {typeof(t) !== "undefined" ? <Board fen={t} /> : ""}
                 </div>
                 <br />

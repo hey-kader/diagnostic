@@ -1,7 +1,14 @@
+* {
+-moz-transform-origin: 0 0;
+margin: auto;
+padding: auto;
+}
 form {
-    margin: auto;
-    background: white;
+	background: white;
+	margin: 3rem auto;
+    
     color: black;
+-moz-transform-origin: 0 0;
 }
 
 input{
@@ -10,7 +17,7 @@ input{
 
 select {
     float: right;
-    margin: auto 0.2rem auto 7rem;
+    margin: auto 0.2rem auto 0.7rem;
 }
 
 label {
@@ -28,4 +35,8 @@ legend {
 p {
     text-decoration: none;
     color: white;
+}
+
+button {
+width: 50%;
 }
