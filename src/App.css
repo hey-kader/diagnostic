@@ -1,5 +1,4 @@
 .wrapper {
-	text-align: center;
 	margin: 0;
 	padding: 0;
 }
@@ -8,15 +7,10 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .App-header {
   background-color: white;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -27,11 +21,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

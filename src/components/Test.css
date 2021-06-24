@@ -5,7 +5,7 @@ html {
 }
 img {
    width: 90px;
-   float: left;
+   float: right;
    margin: 0.15rem auto;
 }
 
@@ -13,9 +13,9 @@ h3 {
 
 border-style: groove;
 padding: 1rem;
-float: right;
+float: left;
 border-radius: 3px;
-margin: auto 1.75rem auto 0.5rem;
+margin: auto 0.5rem auto 0.5rem;
 background: #eee;
 
 }
@@ -28,7 +28,7 @@ background: #eee;
   }
   button {
 padding: 1rem;
-width: 48vh;
+width: 48vw;
 align-items: center;
 text-align: center;
 }
