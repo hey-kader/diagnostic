@@ -1,9 +1,11 @@
 const express = require ('express')
 const path = require ("path")
 const https = require ('https')
+const vhost = require ('vhost')
 
 const PORT = 80 
-const app = express()
+var app = express()
+var router = express.Router()
 const fs = require('fs')
 
 const bodyParser = require ('body-parser')
@@ -16,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use(bodyParser.json({ type: 'application/*+json' }))
 
 app.get ('/', function (req, res) {
+    const host = req.headers.host
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 
 })
@@ -24,7 +27,6 @@ const ssl = {
     key: fs.readFileSync('ssl/kaderarnold_com.key'),
     cert: fs.readFileSync('ssl/kaderarnold_com.crt')
 }
-
 
 async function accessSpreadsheet (row) {
     const doc = new GoogleSpreadsheet ('1g1rlRfpDwMkoQCjQYDRu0tWOk0TTzPOAbvXcUHFXDh8')
@@ -94,6 +96,7 @@ app.post('/', encodedParser, function (req, res) {
         }
 
         accessSpreadsheet(row)
+	console.log(row)
         count++;
     }
     else {
@@ -163,10 +166,11 @@ app.post('/', encodedParser, function (req, res) {
     
 })
 
-//app.listen(PORT)
+app.listen(PORT)
 
 
-const server = https.createServer(ssl, app)
+const server = https.createServer(ssl, app) 
 server.listen('443', function () {
     console.log ('serving https...')
+
 })
