@@ -12,9 +12,6 @@ function Board (props) {
         game.current = new Chess (fen)
     }, [])
 
-    const style = {
-        display: 'inline'
-    }
 
     const onDrop = ({sourceSquare, targetSquare}) => {
         let move = game.current.move({

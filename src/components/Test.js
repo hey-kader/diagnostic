@@ -82,7 +82,8 @@ class Test extends Component {
         let t = it.next().value
         return (
             <div className="wrapper">
-                <h3 style={{margin: '3rem 0.5rem'}} id="title"></h3>
+                <h3 style={{margin: '1rem 0rem'}} id="title"></h3>
+		<img id="logo" src="chess-logo.png" />
                 <h3 id="fen" hidden></h3>
                 <h2 id="playerMove" hidden></h2>
 
