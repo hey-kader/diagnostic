@@ -56,7 +56,7 @@ function reset_click () {
 }
 
 const api = axios.create ({
-    baseURL: "https://kaderarnold.com/"
+    baseURL: "https://kaderarnold.com:4431/chess"
 })
 
 class Test extends Component {
@@ -95,8 +95,9 @@ class Test extends Component {
                     {typeof(t) !== "undefined" ? <Board fen={t} /> : ""}
                 </div>
                 <br />
-                <button id="reset" onClick={() => reset_click()} style={{display: 'none', borderStyle: 'inset'}} >reset</button>
+
                 <button style={{display: 'none', borderStyle: 'inset'}} onClick={() => handle_click(it.next().value, this.props)} id="next" >next</button>
+                <button id="reset" onClick={() => reset_click()} style={{display: 'none', borderStyle: 'inset'}} >reset</button>
             </div>
         )
     }

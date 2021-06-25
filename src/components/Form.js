@@ -22,7 +22,7 @@ function Form () {
         }
 
         console.log(data)
-        axios.post('https://kaderarnold.com/', JSON.stringify(data))
+        axios.post('https://kaderarnold.com:4431/chess/', JSON.stringify(data))
             .then(response => {
                 console.log(response)
             })
@@ -35,7 +35,7 @@ function Form () {
     }
 
     return (
-        <form action="" method="post" onSubmit={(e) => {e.preventDefault(); handle_submit()}} id="form">
+        <form style={{background: '#f9d79d'}} action="" method="post" onSubmit={(e) => {e.preventDefault(); handle_submit()}} id="form">
             <fieldset>
                 <legend>Chess Assessment</legend>
                 <table>

@@ -1,12 +1,19 @@
 .wrapper {
 	margin: 0;
 	padding: 0;
+	background: #f9d79d;
 }
 
 .App {
   text-align: center;
 }
 
+#next, #reset {
+display: none;
+color: black;
+align-items: center;
+justify-content: center;
+}
 
 .App-header {
   background-color: white;

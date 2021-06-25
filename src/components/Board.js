@@ -31,8 +31,8 @@ function Board (props) {
         console.log(targetSquare)
         document.getElementById("playerMove").innerHTML = targetSquare
 
-        document.getElementById("next").style.display = "block"
-        document.getElementById("reset").style.display = "block"
+        document.getElementById("next").style.display = "inline-block"
+        document.getElementById("reset").style.display = "inline-block"
     }
     
     return (
@@ -40,7 +40,8 @@ function Board (props) {
             <Chessboard
                 position={fen}
                 onDrop={onDrop}
-		width={340}
+		width={400}
+		height={400}
             />
         </div>
     )

@@ -50,7 +50,7 @@ function Thanks (props) {
 
         console.log(obj)
         // axios post request
-        axios.post('https://kaderarnold.com/', JSON.stringify(obj))
+        axios.post('https://kaderarnold.com:4431/chess/', JSON.stringify(obj))
             .then(response => {
                 console.log(response)
             })

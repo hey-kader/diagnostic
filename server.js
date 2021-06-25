@@ -3,7 +3,7 @@ const path = require ("path")
 const https = require ('https')
 const vhost = require ('vhost')
 
-const PORT = 80 
+const PORT = 3001  
 var app = express()
 var router = express.Router()
 const fs = require('fs')
@@ -17,12 +17,10 @@ const creds = require ('./client_secret.json')
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(bodyParser.json({ type: 'application/*+json' }))
 
-app.get ('/', function (req, res) {
-    const host = req.headers.host
+app.get ('/chess/', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 
 })
-
 const ssl = {
     key: fs.readFileSync('ssl/kaderarnold_com.key'),
     cert: fs.readFileSync('ssl/kaderarnold_com.crt')
@@ -68,7 +66,7 @@ function clean (data) {
 }
 
 var count = 0
-app.post('/', encodedParser, function (req, res) {
+app.post('/chess/', encodedParser, function (req, res) {
 
     if (!req.body) return res.sendStatus(400)
 
@@ -170,7 +168,7 @@ app.listen(PORT)
 
 
 const server = https.createServer(ssl, app) 
-server.listen('443', function () {
+server.listen('4431', function () {
     console.log ('serving https...')
 
 })

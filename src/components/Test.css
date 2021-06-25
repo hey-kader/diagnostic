@@ -24,11 +24,12 @@ background: #eee;
   /* For mobile phones: */
   .wrapper {
    align-items: center;
-   margin: 1rem;
+display: inline-block;
   }
   button {
 padding: 1rem;
-width: 48vw;
+width: 10vw;
+display: flex;
 align-items: center;
 text-align: center;
 }
